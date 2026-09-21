@@ -29,8 +29,9 @@ export const projects: Project[] = [
     tagline: "Civic Issue Reporting Platform",
     description:
       "A web platform for reporting and tracking civic issues, connecting residents with the right department to get problems resolved.",
-    tech: [],
-    github: "#",
+    tech: ["React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Supabase", "React Router", "Leaflet"],
+    github: "https://github.com/Tapas193/CrowdSouced-civic-issues",
+    demo: "https://crowd-souced-civic-issues.vercel.app",
   },
   {
     id: "career-track",
