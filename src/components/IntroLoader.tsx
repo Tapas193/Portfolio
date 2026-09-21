@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 
-const SESSION_KEY = "portfolio-intro-shown"
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1]
 
 type Scene = {
@@ -22,23 +21,6 @@ const SCENE_AT = [500, 1300, 2000, 2700]
 const EXIT_AT = 3400
 const LINE_DURATION = 0.5
 const PROGRESS_DURATION = 3.4
-
-// Resolved once per page load (module scope) so React StrictMode remounts and
-// Vite HMR updates never replay the intro within the same browser session.
-let cachedDecision: boolean | null = null
-
-function shouldShowLoader(): boolean {
-  if (cachedDecision !== null) return cachedDecision
-  let show = true
-  try {
-    show = sessionStorage.getItem(SESSION_KEY) !== "1"
-    if (show) sessionStorage.setItem(SESSION_KEY, "1")
-  } catch {
-    show = true
-  }
-  cachedDecision = show
-  return show
-}
 
 function SceneView({ scene }: { scene: Scene }) {
   const base = "block font-display text-heading"
@@ -109,7 +91,12 @@ function SceneView({ scene }: { scene: Scene }) {
 }
 
 export function IntroLoader() {
-  const [active, setActive] = useState(shouldShowLoader)
+  // Plays on every full page load. No session/local storage persistence:
+  // a refresh remounts the app, so the intro starts again. Re-renders do not
+  // restart it because the timeline lives in an effect keyed only on `active`.
+  // StrictMode's mount -> cleanup -> mount cycle is handled by clearing the
+  // timers in cleanup, so only one visible run ever completes.
+  const [active, setActive] = useState(true)
   const [sceneIndex, setSceneIndex] = useState(-1)
 
   useEffect(() => {
