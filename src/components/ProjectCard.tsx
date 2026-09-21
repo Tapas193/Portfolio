@@ -12,7 +12,7 @@ interface ProjectCardProps {
 export function ProjectCard({ project, index, onOpen }: ProjectCardProps) {
   return (
     <motion.article
-      className="group flex flex-col gap-5 rounded-xl border border-line bg-white p-7 transition-all duration-300 hover:-translate-y-[3px] hover:shadow-[0_18px_40px_-24px_rgba(17,17,17,0.35)]"
+      className="group flex flex-col gap-5 rounded-[20px] border border-line bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-taupe/50 hover:shadow-[0_18px_40px_-24px_rgba(17,17,17,0.35)]"
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -28,11 +28,16 @@ export function ProjectCard({ project, index, onOpen }: ProjectCardProps) {
       tabIndex={0}
       aria-label={`Open project ${project.name}`}
     >
-      {project.featured ? (
-        <span className="inline-flex w-fit rounded-full border border-line bg-offwhite px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-fog">
-          Featured
+      <div className="flex items-center justify-between gap-4">
+        <span className="font-mono text-[11px] font-medium tracking-[0.22em] text-fog">
+          {project.number}
         </span>
-      ) : null}
+        {project.featured ? (
+          <span className="inline-flex w-fit rounded-full border border-line bg-offwhite px-3 py-1 text-[11px] font-semibold tracking-wider text-fog uppercase">
+            Featured
+          </span>
+        ) : null}
+      </div>
 
       <div className="flex items-start justify-between gap-4">
         <div>
@@ -41,7 +46,7 @@ export function ProjectCard({ project, index, onOpen }: ProjectCardProps) {
           </h3>
           <p className="mt-1 text-sm font-medium text-fog">{project.tagline}</p>
         </div>
-        <ArrowUpRight className="h-5 w-5 shrink-0 text-fog transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        <ArrowUpRight className="h-5 w-5 shrink-0 text-fog transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
       </div>
 
       <p className="text-[15px] leading-relaxed text-body">{project.description}</p>

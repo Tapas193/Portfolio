@@ -61,6 +61,16 @@ export function Hero() {
             {profile.role}
           </motion.p>
 
+          <motion.p
+            className="mt-5 flex items-center gap-2.5 text-[11px] font-medium uppercase tracking-[0.22em] text-fog"
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+          >
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-taupe" aria-hidden="true" />
+            {"Available for internships • full-time opportunities"}
+          </motion.p>
+
           <motion.div
             className="mt-8 flex flex-wrap items-center gap-3"
             initial={{ opacity: 0, y: 16 }}

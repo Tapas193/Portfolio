@@ -21,4 +21,4 @@ export const heroStack = [
   "Docker",
 ] as const
 
-export const aboutText = `I\u2019m a Computer Science Engineering student at Graphic Era Hill University who enjoys building practical software and solving algorithmic problems. My interests span full-stack development, cloud infrastructure and DevOps. I enjoy taking an idea from a problem statement to a working product.`
+export const aboutText = `I\u2019m a BTech CSE student at Graphic Era Hill University focused on building practical software systems across full-stack development, cloud and backend engineering. I enjoy taking an idea from a problem statement to a working product, and I care about clean, reliable code and a thoughtful developer experience.`

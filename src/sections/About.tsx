@@ -4,9 +4,9 @@ import { aboutText } from "../data/profile"
 
 const facts = [
   ["CGPA", "8.1"],
-  ["Class XII", "79%"],
-  ["Class X", "81%"],
   ["LeetCode", "350+"],
+  ["Max Rating", "1624"],
+  ["Class XII", "79%"],
 ]
 
 export function About() {

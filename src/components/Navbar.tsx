@@ -87,11 +87,18 @@ export function Navbar() {
                 href={link.target}
                 aria-current={isActive ? "true" : undefined}
                 className={[
-                  "rounded-md px-3 py-2 text-sm font-medium transition-colors duration-200",
+                  "group relative rounded-md px-3 py-2 text-sm font-medium transition-colors duration-200",
                   isActive ? "text-snow" : "text-fog hover:text-snow",
                 ].join(" ")}
               >
                 {link.label}
+                <span
+                  aria-hidden="true"
+                  className={[
+                    "pointer-events-none absolute inset-x-3 bottom-1 h-px origin-left bg-snow transition-transform duration-300",
+                    isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100",
+                  ].join(" ")}
+                />
               </a>
             )
           })}

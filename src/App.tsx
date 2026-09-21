@@ -4,6 +4,7 @@ import { IntroLoader } from "./components/IntroLoader"
 import { Navbar } from "./components/Navbar"
 import { Footer } from "./components/Footer"
 import { Hero } from "./sections/Hero"
+import { Currently } from "./sections/Currently"
 import { About } from "./sections/About"
 import { Skills } from "./sections/Skills"
 import { Projects } from "./sections/Projects"
@@ -29,6 +30,7 @@ export default function App() {
         <Navbar />
         <main>
           <Hero />
+          <Currently />
           <About />
           <Skills />
           <Projects />
