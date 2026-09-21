@@ -9,7 +9,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center bg-white pt-32 pb-20"
+      className="relative flex min-h-screen items-center bg-background pt-32 pb-20"
     >
       <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-14 px-6 md:px-8 lg:grid-cols-2 lg:gap-12">
         {/* left */}
@@ -99,7 +99,7 @@ export function Hero() {
               {heroStack.map((tech, i) => (
                 <li key={tech} className="flex items-center gap-2.5">
                   {i > 0 ? (
-                    <span className="text-lightash" aria-hidden="true">
+                    <span className="text-muted" aria-hidden="true">
                       ·
                     </span>
                   ) : null}
@@ -117,7 +117,7 @@ export function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.35 }}
         >
-          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-line bg-beigewarm p-3 shadow-[0_24px_60px_-30px_rgba(17,17,17,0.35)]">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-line bg-beigewarm p-3 shadow-[0_24px_60px_-30px_rgba(17,17,17,0.35)]">
             <img
               src="/SHIVANG.PNG"
               alt={`${profile.name} — profile photo`}

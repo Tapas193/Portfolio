@@ -5,7 +5,7 @@ import { leadership } from "../data/experience"
 
 export function Leadership() {
   return (
-    <section id="leadership" className="relative py-24 bg-white sm:py-32">
+    <section id="leadership" className="relative py-24 bg-background sm:py-32">
       <div className="mx-auto max-w-6xl px-6 md:px-8">
         <SectionHeading
           eyebrow="Experience"
@@ -32,10 +32,17 @@ export function Leadership() {
                     {item.role}
                   </h3>
                   <p className="mt-1.5 text-base text-fog">{item.org}</p>
-                  {item.badge ? (
-                    <span className="mt-4 inline-flex items-center rounded-full border border-line bg-offwhite px-3.5 py-1.5 text-xs font-medium text-snow">
-                      {item.badge}
-                    </span>
+                  {item.badges && item.badges.length > 0 ? (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {item.badges.map((badge) => (
+                        <span
+                          key={badge}
+                          className="inline-flex items-center rounded-full border border-line bg-offwhite px-3.5 py-1.5 text-xs font-medium text-snow"
+                        >
+                          {badge}
+                        </span>
+                      ))}
+                    </div>
                   ) : null}
                 </div>
 
@@ -43,7 +50,7 @@ export function Leadership() {
                   {item.points.map((point, i) => (
                     <motion.li
                       key={point}
-                      className="flex items-start gap-3 text-[15px] leading-relaxed text-snow/90"
+                      className="flex items-start gap-3 text-[15px] leading-relaxed text-body"
                       initial={{ opacity: 0, x: 16 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}

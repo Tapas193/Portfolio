@@ -12,11 +12,13 @@ const links = [
 
 export function Footer() {
   return (
-    <footer className="bg-softblack py-10">
+    <footer className="bg-footer py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 md:flex-row md:justify-between md:px-8">
         <div>
-          <p className="font-display text-base font-semibold text-white">{profile.name}</p>
-          <p className="mt-0.5 text-sm text-ashgrey">
+          <p className="font-display text-base font-semibold text-footer-heading">
+            {profile.name}
+          </p>
+          <p className="mt-0.5 text-sm text-footer-muted">
             BTech CSE · Developer · Problem Solver
           </p>
         </div>
@@ -32,7 +34,7 @@ export function Footer() {
                 href={link.href}
                 title={link.label}
                 aria-label={link.label}
-                className="flex items-center gap-2 text-sm text-beige-light transition-colors hover:text-white"
+                className="flex items-center gap-2 text-sm text-footer-muted transition-colors hover:text-footer-heading"
                 {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               >
                 <Icon className="h-4 w-4" />
@@ -42,7 +44,7 @@ export function Footer() {
           })}
         </div>
 
-        <p className="text-sm text-ashgrey">© 2026 {profile.name}</p>
+        <p className="text-sm text-footer-muted">© 2026 {profile.name}</p>
       </div>
     </footer>
   )

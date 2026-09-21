@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { navbarLinks } from "../data/socials"
 import { profile } from "../data/profile"
+import { ThemeToggle } from "./ThemeToggle"
 
 const sectionIds = navbarLinks.map((l) => l.target.replace("#", ""))
 
@@ -58,7 +59,7 @@ export function Navbar() {
       <nav
         className={[
           "flex items-center justify-between border-b px-6 transition-all duration-300 md:px-10",
-          scrolled ? "border-line bg-white/95 backdrop-blur" : "border-transparent bg-white",
+          scrolled ? "border-border bg-background/95 backdrop-blur" : "border-transparent bg-background",
         ].join(" ")}
         aria-label="Primary"
       >
@@ -96,7 +97,8 @@ export function Navbar() {
           })}
         </div>
 
-        <div className="hidden items-center md:flex">
+        <div className="hidden items-center gap-3 md:flex">
+          <ThemeToggle />
           <a
             href="#contact"
             className="rounded-lg bg-softblack px-4 py-2 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5"
@@ -105,21 +107,24 @@ export function Navbar() {
           </a>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg text-snow md:hidden"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="flex h-10 w-10 items-center justify-center rounded-lg text-snow"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>
         {open ? (
           <motion.div
-            className="fixed inset-0 z-40 flex flex-col bg-white px-6 pb-8 pt-24 md:hidden"
+            className="fixed inset-0 z-40 flex flex-col bg-background px-6 pb-8 pt-24 md:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

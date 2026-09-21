@@ -18,7 +18,7 @@ const achievements = [
 
 export function Achievements() {
   return (
-    <section id="achievements" className="relative py-24 bg-white sm:py-32">
+    <section id="achievements" className="relative py-24 bg-background sm:py-32">
       <div className="mx-auto max-w-6xl px-6 md:px-8">
         <SectionHeading eyebrow="Highlights" title={<>Achievements</>} align="center" />
 

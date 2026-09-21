@@ -1,4 +1,6 @@
+import { useEffect } from "react"
 import { MotionConfig } from "framer-motion"
+import { IntroLoader } from "./components/IntroLoader"
 import { Navbar } from "./components/Navbar"
 import { Footer } from "./components/Footer"
 import { Hero } from "./sections/Hero"
@@ -12,9 +14,18 @@ import { Achievements } from "./sections/Achievements"
 import { Contact } from "./sections/Contact"
 
 export default function App() {
+  useEffect(() => {
+    const timer = window.setTimeout(
+      () => document.documentElement.classList.remove("theme-loading"),
+      60,
+    )
+    return () => window.clearTimeout(timer)
+  }, [])
+
   return (
     <MotionConfig reducedMotion="user">
-      <div className="relative min-h-screen overflow-x-clip bg-white">
+      <IntroLoader />
+      <div className="relative min-h-screen overflow-x-clip bg-background">
         <Navbar />
         <main>
           <Hero />

@@ -16,6 +16,19 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <script>
+      (function () {
+        try {
+          document.documentElement.classList.add("theme-loading")
+          var theme = localStorage.getItem("portfolio-theme")
+          if (theme === "dark") {
+            document.documentElement.classList.add("dark")
+            var meta = document.querySelector('meta[name="theme-color"]')
+            if (meta) meta.setAttribute("content", "#000000")
+          }
+        } catch (e) {}
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>

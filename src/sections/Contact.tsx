@@ -6,7 +6,7 @@ import { socials } from "../data/socials"
 
 export function Contact() {
   return (
-    <section id="contact" className="relative py-24 bg-white sm:py-36">
+    <section id="contact" className="relative py-24 bg-background sm:py-36">
       <div className="mx-auto max-w-4xl px-6 text-center md:px-8">
         <motion.span
           className="eyebrow"

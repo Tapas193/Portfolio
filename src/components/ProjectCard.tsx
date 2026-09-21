@@ -44,7 +44,7 @@ export function ProjectCard({ project, index, onOpen }: ProjectCardProps) {
         <ArrowUpRight className="h-5 w-5 shrink-0 text-fog transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
       </div>
 
-      <p className="text-[15px] leading-relaxed text-snow/90">{project.description}</p>
+      <p className="text-[15px] leading-relaxed text-body">{project.description}</p>
 
       {project.tech.length > 0 ? (
         <div className="flex flex-wrap gap-1.5">

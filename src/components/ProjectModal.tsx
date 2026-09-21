@@ -66,7 +66,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
             <div className="overflow-y-auto px-6 py-5">
               <p className="text-lg font-medium text-snow">{project.tagline}</p>
-              <p className="mt-3 text-[15px] leading-relaxed text-snow/90">
+              <p className="mt-3 text-[15px] leading-relaxed text-body">
                 {project.description}
               </p>
 

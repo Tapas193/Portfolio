@@ -1,40 +1,128 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================================
+   THEME TOKENS — single source of truth
+   LIGHT: white + warm beige + black + ash grey
+   DARK:  black + dark grey + white + light grey
+   ============================================================ */
+:root {
+  --background: #ffffff;
+  --surface: #f5f3ee;
+  --beige: #eee8de;
+  --card: #ffffff;
+  --foreground: #333333;
+  --heading: #000000;
+  --muted: #5a5a56;
+  --border: #d6d3cc;
+  --accent: #8a8378;
+  --primary: #111111;
+  --primary-foreground: #ffffff;
+  --footer-bg: #111111;
+  --footer-fg: #e0e0e0;
+  --footer-muted: #bdbdbd;
+  --footer-heading: #ffffff;
+  color-scheme: light;
+}
+
+.dark {
+  --background: #000000;
+  --surface: #111111;
+  --beige: #111111;
+  --card: #181818;
+  --foreground: #e8e8e8;
+  --heading: #ffffff;
+  --muted: #bdbdbd;
+  --border: #333333;
+  --accent: #a8a198;
+  --primary: #ffffff;
+  --primary-foreground: #000000;
+  --footer-bg: #000000;
+  --footer-fg: #bdbdbd;
+  --footer-muted: #bdbdbd;
+  --footer-heading: #ffffff;
+  color-scheme: dark;
+}
+
 @theme {
   --font-sans: "Inter", system-ui, sans-serif;
   --font-display: "Inter", system-ui, sans-serif;
   --font-mono: "Inter", ui-monospace, monospace;
 
-  --color-white: #ffffff;
-  --color-offwhite: #fafaf8;
-  --color-beigewarm: #f2ede4;
-  --color-beigelight: #e8e1d6;
-  --color-black: #111111;
-  --color-softblack: #1c1c1a;
-  --color-ashgrey: #6b6b67;
-  --color-lightash: #d8d6d0;
-  --color-line: #d9d5cc;
-  --color-taupe: #8a8378;
+  /* Semantic tokens bound to the active theme */
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-beige: var(--beige);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-body: var(--foreground);
+  --color-heading: var(--heading);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-footer: var(--footer-bg);
+  --color-footer-foreground: var(--footer-fg);
+  --color-footer-muted: var(--footer-muted);
+  --color-footer-heading: var(--footer-heading);
 
-  /* Semantic aliases used across the codebase */
-  --color-ink: #f2ede4;
-  --color-panel: #ffffff;
-  --color-stone: #fafaf8;
-  --color-snow: #111111;
-  --color-fog: #6b6b67;
-  --color-charcoal: #111111;
-  --color-graphite: #1c1c1a;
-  --color-accent: #8a8378;
-  --color-accent-dark: #1c1c1a;
-}
-
-:root {
-  color-scheme: light;
+  /* Legacy aliases kept so existing components stay theme-aware */
+  --color-white: var(--card);
+  --color-offwhite: var(--surface);
+  --color-beigewarm: var(--beige);
+  --color-beigelight: var(--card);
+  --color-softblack: var(--primary);
+  --color-ashgrey: var(--muted);
+  --color-lightash: var(--border);
+  --color-line: var(--border);
+  --color-taupe: var(--accent);
+  --color-snow: var(--heading);
+  --color-fog: var(--muted);
+  --color-panel: var(--card);
+  --color-stone: var(--surface);
+  --color-ink: var(--surface);
+  --color-charcoal: var(--heading);
+  --color-graphite: var(--surface);
+  --color-accent-dark: var(--heading);
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 88px;
+}
+
+/* Theme switch transition (colour only, never layout) */
+body,
+header,
+footer,
+main,
+section,
+article,
+nav,
+aside,
+h1,
+h2,
+h3,
+h4,
+p,
+span,
+a,
+button,
+li,
+.eyebrow {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+html.theme-loading *,
+html.theme-loading *::before,
+html.theme-loading *::after {
+  transition: none !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -52,8 +140,8 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: #ffffff;
-  color: #111111;
+  background-color: var(--background);
+  color: var(--foreground);
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -66,6 +154,7 @@ h2,
 h3,
 h4 {
   letter-spacing: -0.02em;
+  color: var(--heading);
 }
 
 a {
@@ -78,66 +167,43 @@ button,
 }
 
 ::selection {
-  background: rgba(139, 130, 120, 0.22);
-  color: #111111;
+  background: color-mix(in srgb, var(--accent) 25%, transparent);
+  color: var(--heading);
 }
 
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #fafaf8;
+  background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: #d8d6d0;
+  background: var(--border);
   border-radius: 8px;
-  border: 2px solid #fafaf8;
+  border: 2px solid var(--background);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #b5b1a7;
-}
-
-.bg-grid {
-  background-image:
-    linear-gradient(rgba(17, 17, 17, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(17, 17, 17, 0.035) 1px, transparent 1px);
-  background-size: 64px 64px;
-}
-
-.glass {
-  background: rgba(250, 250, 248, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid #d9d5cc;
-}
-
-.card-line {
-  border: 1px solid #d9d5cc;
-  background: #ffffff;
+  background: var(--muted);
 }
 
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  border: 1px solid #d9d5cc;
-  background: #fafaf8;
+  border: 1px solid var(--border);
+  background: var(--surface);
   padding: 0.35rem 0.85rem;
   border-radius: 999px;
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #6b6b67;
-}
-
-.text-ink {
-  color: #111111;
+  color: var(--muted);
 }
 
 a:focus-visible,
 button:focus-visible,
 input:focus-visible {
-  outline: 2px solid rgba(139, 130, 120, 0.6);
+  outline: 2px solid color-mix(in srgb, var(--accent) 70%, transparent);
   outline-offset: 3px;
   border-radius: 6px;
 }

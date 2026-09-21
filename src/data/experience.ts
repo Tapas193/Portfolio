@@ -4,7 +4,7 @@ export interface ExperienceItem {
   period: string
   type: "leadership" | "education"
   points: string[]
-  badge?: string
+  badges?: string[]
 }
 
 export const leadership: ExperienceItem[] = [
@@ -13,7 +13,7 @@ export const leadership: ExperienceItem[] = [
     org: "AWS Cloud Club \u2014 GEHU",
     period: "2025 \u2014 Present",
     type: "leadership",
-    badge: "Cloud Community Lead",
+    badges: ["Cloud Community Lead"],
     points: [
       "Technical leadership of the AWS Cloud Club",
       "Leading cloud-focused technical initiatives",
@@ -24,17 +24,18 @@ export const leadership: ExperienceItem[] = [
     ],
   },
   {
-    role: "President",
-    org: "WE CODE CLUB \u2014 GEHU",
-    period: "Aug 2025 \u2014 Present",
+    role: "SIH Team Leader",
+    org: "Smart India Hackathon (SIH) 2026",
+    period: "2026 \u2014 Shortlisted",
     type: "leadership",
-    badge: "20+ member team",
+    badges: ["Team Leadership", "IBVAP Project"],
     points: [
-      "Leading a team of 20+ student developers",
-      "Technical leadership and community coordination",
-      "Supporting student developers on first projects",
-      "Organizing technical sessions and workshops",
-      "Driving collaborative open project work",
+      "Leading the team for Smart India Hackathon 2026",
+      "Our IBVAP project has been shortlisted for SIH 2026",
+      "Coordinating development, research and problem-solving",
+      "Collaborating with team members to build an impactful solution",
+      "Preparing for the final round and further development",
+      "Representing GEHU at the national level",
     ],
   },
 ]
