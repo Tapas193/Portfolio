@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
-import { Menu, X } from "lucide-react"
+import { Download, Menu, X } from "lucide-react"
 import { navbarLinks } from "../data/socials"
 import { profile } from "../data/profile"
 import { ThemeToggle } from "./ThemeToggle"
@@ -100,6 +100,15 @@ export function Navbar() {
         <div className="hidden items-center gap-3 md:flex">
           <ThemeToggle />
           <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-2 text-sm font-medium text-heading transition-transform duration-200 hover:-translate-y-0.5"
+          >
+            <Download className="h-4 w-4" />
+            Resume
+          </a>
+          <a
             href="#contact"
             className="rounded-lg bg-softblack px-4 py-2 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5"
           >
@@ -145,7 +154,17 @@ export function Navbar() {
                 </motion.a>
               ))}
             </div>
-            <div className="mt-8">
+            <div className="mt-8 flex flex-col gap-3">
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-center gap-2 rounded-lg border border-border bg-card py-3.5 text-sm font-medium text-heading"
+              >
+                <Download className="h-4 w-4" />
+                Resume
+              </a>
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}

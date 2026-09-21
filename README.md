@@ -35,7 +35,7 @@ An intelligent video analytics platform that transforms existing IP-based CCTV i
 
 → [github.com/alive7z/IBVAP](https://github.com/alive7z/IBVAP)
 
-### 2. IS CIVIC ISSUES
+### 2. CIVIC ISSUES
 A web platform for reporting and tracking civic issues, connecting residents with the right department to get problems resolved.
 
 `React` `TypeScript` `Tailwind CSS` `shadcn/ui` `Supabase` `React Router` `Leaflet`

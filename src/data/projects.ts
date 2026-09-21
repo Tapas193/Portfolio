@@ -23,9 +23,9 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: "is-civic-issues",
+    id: "civic-issues",
     number: "02",
-    name: "IS CIVIC ISSUES",
+    name: "CIVIC ISSUES",
     tagline: "Civic Issue Reporting Platform",
     description:
       "A web platform for reporting and tracking civic issues, connecting residents with the right department to get problems resolved.",
