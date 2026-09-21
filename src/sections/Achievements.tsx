@@ -3,8 +3,8 @@ import { SectionHeading } from "../components/SectionHeading"
 
 const achievements = [
   {
-    title: "Hackathon Finalist",
-    text: "Made it to the final round of a hackathon — taking ideas from problem statement to demo.",
+    title: "SIH 2026 Shortlisted",
+    text: "Our IBVAP project has been shortlisted for Smart India Hackathon 2026.",
   },
   {
     title: "350+ LeetCode Problems",
@@ -12,7 +12,7 @@ const achievements = [
   },
   {
     title: "Technical Leadership",
-    text: "Leading a 20+ member student developer club and technical community at GEHU.",
+    text: "Technical Lead at the AWS Cloud Club — GEHU, driving cloud learning initiatives.",
   },
 ]
 

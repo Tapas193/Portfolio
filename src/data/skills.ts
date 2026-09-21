@@ -14,11 +14,11 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     title: "Backend",
-    skills: ["Node.js", "Express", "Django"],
+    skills: ["Node.js", "Express"],
   },
   {
     title: "Cloud & DevOps",
-    skills: ["AWS", "Docker", "Linux", "Git"],
+    skills: ["AWS", "Docker", "Git/GitHub", "DevOps"],
   },
   {
     title: "Databases",

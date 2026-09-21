@@ -1,14 +1,12 @@
 import { motion } from "framer-motion"
 import { SectionHeading } from "../components/SectionHeading"
-import { aboutText, profile } from "../data/profile"
+import { aboutText } from "../data/profile"
 
 const facts = [
-  ["Degree", "BTech CSE"],
-  ["College", profile.college],
   ["CGPA", "8.1"],
-  ["LeetCode", "350+ Problems"],
-  ["Max LeetCode Rating", "1624"],
-  ["Location", profile.location],
+  ["Class XII", "79%"],
+  ["Class X", "81%"],
+  ["LeetCode", "350+"],
 ]
 
 export function About() {
@@ -27,20 +25,24 @@ export function About() {
             <p className="max-w-prose text-lg leading-relaxed text-snow">{aboutText}</p>
           </motion.div>
 
-          <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line">
+          <div className="grid grid-cols-2 self-start overflow-hidden rounded-[20px] border border-line bg-card shadow-[0_18px_45px_-30px_rgba(17,17,17,0.3)]">
             {facts.map(([label, value], i) => (
               <motion.div
                 key={label}
-                className="flex flex-col gap-1 bg-beige-light p-5"
+                className={[
+                  "flex flex-col gap-1.5 p-6",
+                  i % 2 === 0 ? "border-r border-line" : "",
+                  i < 2 ? "border-b border-line" : "",
+                ].join(" ")}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.45, delay: i * 0.05 }}
               >
-                <span className="text-[11px] font-medium uppercase tracking-wider text-fog">
+                <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-fog">
                   {label}
                 </span>
-                <span className="text-lg font-semibold text-snow">{value}</span>
+                <span className="text-xl font-semibold text-snow">{value}</span>
               </motion.div>
             ))}
           </div>
