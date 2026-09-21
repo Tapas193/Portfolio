@@ -42,5 +42,6 @@ export const projects: Project[] = [
       "A student career lifecycle platform that tracks the journey from admission and academics through skills, certifications, projects, internships, placement and alumni career history.",
     tech: ["React", "TypeScript", "Node.js", "Express", "Prisma", "PostgreSQL", "JWT", "Tailwind CSS"],
     github: "https://github.com/Tapas193/CAREER-TRACKER",
+    demo: "https://career-tracker-one-iota.vercel.app/",
   },
 ]

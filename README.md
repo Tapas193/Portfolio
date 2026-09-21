@@ -49,6 +49,7 @@ A student career lifecycle platform that tracks the journey from admission and a
 `React` `TypeScript` `Node.js` `Express` `Prisma` `PostgreSQL` `JWT` `Tailwind CSS`
 
 → [github.com/Tapas193/CAREER-TRACKER](https://github.com/Tapas193/CAREER-TRACKER)
+→ [Live demo](https://career-tracker-one-iota.vercel.app/)
 
 ---
 
