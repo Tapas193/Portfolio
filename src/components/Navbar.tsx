@@ -70,7 +70,7 @@ export function Navbar() {
             aria-label="Tapas Mishra — home"
           >
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-softblack font-mono text-xs font-bold text-white">
-              TM
+              {profile.initials}
             </span>
             <span className="text-sm font-semibold tracking-tight text-snow">
               {profile.name}

@@ -84,28 +84,32 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               ) : null}
             </div>
 
-            <div className="flex items-center gap-3 border-t border-line px-6 py-4">
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg border border-line bg-white px-4 py-2 text-sm font-medium text-snow transition-colors hover:bg-offwhite"
-              >
-                <GithubIcon className="h-4 w-4" />
-                Code
-              </a>
-              {project.demo ? (
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg bg-softblack px-4 py-2 text-sm font-semibold text-white"
-                >
-                  <ExternalLink className="h-4 w-4" />
-                  Live Demo
-                </a>
-              ) : null}
-            </div>
+            {project.github !== "#" || project.demo ? (
+              <div className="flex items-center gap-3 border-t border-line px-6 py-4">
+                {project.github !== "#" ? (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-lg border border-line bg-white px-4 py-2 text-sm font-medium text-snow transition-colors hover:bg-offwhite"
+                  >
+                    <GithubIcon className="h-4 w-4" />
+                    Code
+                  </a>
+                ) : null}
+                {project.demo ? (
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-lg bg-softblack px-4 py-2 text-sm font-semibold text-white"
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                    Live Demo
+                  </a>
+                ) : null}
+              </div>
+            ) : null}
           </motion.div>
         </motion.div>
       ) : null}
