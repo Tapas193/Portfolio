@@ -13,13 +13,14 @@ interface ProjectModalProps {
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
   useEffect(() => {
     if (!project) return
+    const previousOverflow = document.body.style.overflow
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose()
     }
     document.body.style.overflow = "hidden"
     window.addEventListener("keydown", onKey)
     return () => {
-      document.body.style.overflow = ""
+      document.body.style.overflow = previousOverflow
       window.removeEventListener("keydown", onKey)
     }
   }, [project, onClose])

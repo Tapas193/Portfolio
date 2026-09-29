@@ -46,9 +46,18 @@ export function Navbar() {
   }, [])
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : ""
+    if (!open) return
+
+    const previousOverflow = document.body.style.overflow
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false)
+    }
+
+    document.body.style.overflow = "hidden"
+    window.addEventListener("keydown", onKeyDown)
     return () => {
-      document.body.style.overflow = ""
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener("keydown", onKeyDown)
     }
   }, [open])
 
@@ -58,6 +67,7 @@ export function Navbar() {
     >
       <nav
         className={[
+          "relative z-50",
           "flex items-center justify-between border-b px-6 transition-all duration-300 md:px-10",
           scrolled ? "border-border bg-background/95 backdrop-blur" : "border-transparent bg-background",
         ].join(" ")}

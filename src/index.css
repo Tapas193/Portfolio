@@ -19,10 +19,10 @@
   --accent: #8a8378;
   --primary: #111111;
   --primary-foreground: #ffffff;
-  --footer-bg: #111111;
-  --footer-fg: #e0e0e0;
-  --footer-muted: #bdbdbd;
-  --footer-heading: #ffffff;
+  --footer-bg: #ffffff;
+  --footer-fg: #333333;
+  --footer-muted: #5a5a56;
+  --footer-heading: #000000;
   color-scheme: light;
 }
 

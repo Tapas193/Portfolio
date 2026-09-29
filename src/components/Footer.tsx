@@ -22,7 +22,7 @@ export function Footer() {
           USEFUL.
         </h2>
 
-        <div className="mt-12 flex flex-col gap-8 border-t border-white/10 pt-8 md:flex-row md:items-end md:justify-between">
+        <div className="mt-12 flex flex-col gap-8 border-t border-border pt-8 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="font-display text-lg font-semibold text-footer-heading">
               {profile.name}

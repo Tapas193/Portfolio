@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1]
@@ -98,10 +98,12 @@ export function IntroLoader() {
   // timers in cleanup, so only one visible run ever completes.
   const [active, setActive] = useState(true)
   const [sceneIndex, setSceneIndex] = useState(-1)
+  const previousOverflow = useRef("")
 
   useEffect(() => {
     if (!active) return
 
+    previousOverflow.current = document.body.style.overflow
     document.body.style.overflow = "hidden"
 
     const sceneTimers = SCENE_AT.map((at, i) =>
@@ -112,14 +114,23 @@ export function IntroLoader() {
     return () => {
       sceneTimers.forEach(window.clearTimeout)
       window.clearTimeout(exitTimer)
-      document.body.style.overflow = ""
     }
   }, [active])
+
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = previousOverflow.current
+    }
+  }, [])
 
   const current = sceneIndex >= 0 ? SCENES[sceneIndex] : null
 
   return (
-    <AnimatePresence onExitComplete={() => (document.body.style.overflow = "")}>
+    <AnimatePresence
+      onExitComplete={() => {
+        document.body.style.overflow = previousOverflow.current
+      }}
+    >
       {active ? (
         <motion.div
           className="fixed inset-0 z-[100] overflow-hidden bg-background"
