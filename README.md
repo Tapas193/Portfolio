@@ -34,6 +34,7 @@ An intelligent video analytics platform that transforms existing IP-based CCTV i
 `React` `Node.js` `Python` `Computer Vision` `MongoDB` `Redis` `AWS`
 
 → [github.com/alive7z/IBVAP](https://github.com/alive7z/IBVAP)
+→ [Live demo](https://ibvap-uk.duckdns.org)
 
 ### 2. CIVIC ISSUES
 A web platform for reporting and tracking civic issues, connecting residents with the right department to get problems resolved.

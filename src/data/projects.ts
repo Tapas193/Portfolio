@@ -20,6 +20,7 @@ export const projects: Project[] = [
       "An intelligent video analytics platform that transforms existing IP-based CCTV infrastructure into a real-time surveillance system.",
     tech: ["React", "Node.js", "Python", "Computer Vision", "MongoDB", "Redis", "AWS"],
     github: "https://github.com/alive7z/IBVAP",
+    demo: "https://ibvap-uk.duckdns.org",
     featured: true,
   },
   {
